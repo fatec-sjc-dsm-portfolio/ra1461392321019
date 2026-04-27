@@ -21,7 +21,16 @@
         <span>Júlia Rosado</span>
       </a>
 
-      <nav class="site-nav" aria-label="Navegação principal">
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+        <span class="nav-toggle__label">Menu</span>
+        <span class="nav-toggle__icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+
+      <nav class="site-nav" id="primary-nav" aria-label="Navegação principal">
         <a href="#sobre">Sobre</a>
         <a href="#projetos">Projetos</a>
         <a href="#formacao">Formação</a>
@@ -221,7 +230,7 @@
             <span class="timeline-dot" aria-hidden="true"></span>
             <div>
               <h3>Inglês intermediário</h3>
-              <p>Leitura, escrita e listening fluentes, com speaking em nível intermediário.</p>
+              <p>Leitura e listening fluentes, com speaking e escrita em nível intermediário.</p>
             </div>
           </div>
           <div class="timeline-item">
@@ -242,30 +251,53 @@
           <h2>Linguagens, bancos e ferramentas do meu dia a dia.</h2>
         </div>
 
-        <div class="skill-grid">
-          <span class="skill-pill">Python</span>
-          <span class="skill-pill">JavaScript</span>
-          <span class="skill-pill">TypeScript</span>
-          <span class="skill-pill">Java</span>
-          <span class="skill-pill">Dart</span>
-          <span class="skill-pill">MySQL</span>
-          <span class="skill-pill">MongoDB</span>
-          <span class="skill-pill">PostgreSQL</span>
-          <span class="skill-pill">Flask</span>
-          <span class="skill-pill">React</span>
-          <span class="skill-pill">Node.js</span>
-          <span class="skill-pill">Vue.js</span>
-          <span class="skill-pill">Spring</span>
-          <span class="skill-pill">React Native</span>
-          <span class="skill-pill">Flutter</span>
-          <span class="skill-pill">Bootstrap</span>
-          <span class="skill-pill">Scrum</span>
-          <span class="skill-pill">Git</span>
-          <span class="skill-pill">GitHub</span>
-          <span class="skill-pill">Docker</span>
-          <span class="skill-pill">DBeaver</span>
-          <span class="skill-pill">Android Studio</span>
-          <span class="skill-pill">Android SDK</span>
+        <div class="skills-panel card">
+          <div class="skills-group">
+            <h3>Linguagens</h3>
+            <div class="skill-grid">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">TypeScript</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Dart</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>Frameworks e interfaces</h3>
+            <div class="skill-grid">
+              <span class="skill-pill">React</span>
+              <span class="skill-pill">React Native</span>
+              <span class="skill-pill">Vue.js</span>
+              <span class="skill-pill">Flutter</span>
+              <span class="skill-pill">Bootstrap</span>
+            </div>
+          </div>
+
+          <div class="skills-group">
+            <h3>Back-end e dados</h3>
+            <div class="skill-grid">
+              <span class="skill-pill">Node.js</span>
+              <span class="skill-pill">Flask</span>
+              <span class="skill-pill">Spring</span>
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">PostgreSQL</span>
+              <span class="skill-pill">MongoDB</span>
+            </div>
+          </div>
+
+          <div class="skills-group skills-group--last">
+            <h3>Ferramentas e métodos</h3>
+            <div class="skill-grid">
+              <span class="skill-pill">Scrum</span>
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">GitHub</span>
+              <span class="skill-pill">Docker</span>
+              <span class="skill-pill">DBeaver</span>
+              <span class="skill-pill">Android Studio</span>
+              <span class="skill-pill">Android SDK</span>
+            </div>
+          </div>
         </div>
 
         <div class="section-body card" style="margin-top: 1.2rem;">
