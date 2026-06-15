@@ -58,3 +58,63 @@ document.addEventListener('keydown', (event) => {
     setNavOpen(false);
   }
 });
+
+const projectTracks = document.querySelectorAll('.project-track');
+
+const updateCarouselState = (track) => {
+  const carousel = track.querySelector('.project-carousel');
+  const buttons = track.querySelectorAll('.project-carousel-btn');
+
+  if (!carousel || buttons.length === 0) {
+    return;
+  }
+
+  const isScrollable = carousel.scrollWidth > carousel.clientWidth + 2;
+  track.classList.toggle('is-scrollable', isScrollable);
+
+  const canScrollLeft = carousel.scrollLeft > 0;
+  const canScrollRight = carousel.scrollLeft + carousel.clientWidth < carousel.scrollWidth - 2;
+
+  buttons.forEach((button) => {
+    const action = button.dataset.carouselAction;
+
+    if (!isScrollable) {
+      button.disabled = true;
+      return;
+    }
+
+    button.disabled = action === 'prev' ? !canScrollLeft : !canScrollRight;
+  });
+};
+
+projectTracks.forEach((track) => {
+  const carousel = track.querySelector('.project-carousel');
+  const buttons = track.querySelectorAll('.project-carousel-btn');
+
+  if (!carousel || buttons.length === 0) {
+    return;
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const direction = button.dataset.carouselAction === 'prev' ? -1 : 1;
+      const card = carousel.querySelector('.project-card');
+      const gapValue = Number.parseFloat(window.getComputedStyle(carousel).gap || '0') || 16;
+      const cardWidth = card ? card.getBoundingClientRect().width : carousel.clientWidth / 3;
+      const scrollAmount = cardWidth + gapValue;
+
+      carousel.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth',
+      });
+    });
+  });
+
+  carousel.addEventListener('scroll', () => updateCarouselState(track), { passive: true });
+  carousel.scrollLeft = 0;
+  updateCarouselState(track);
+});
+
+window.addEventListener('resize', () => {
+  projectTracks.forEach((track) => updateCarouselState(track));
+});
