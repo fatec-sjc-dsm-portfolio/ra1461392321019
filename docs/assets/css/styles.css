@@ -165,6 +165,14 @@ img {
   position: relative;
 }
 
+.section--compact {
+  padding: 4rem 0;
+}
+
+.section--compact .container {
+  width: min(calc(100% - 2rem), 920px);
+}
+
 .hero {
   padding-top: 6.5rem;
 }
@@ -399,6 +407,19 @@ img {
 
 .section-body p + p {
   margin-top: 1rem;
+}
+
+.personal-subtitle {
+  margin: 0;
+  font-size: 1.15rem;
+  margin-top: 0.4rem;
+}
+
+.personal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.2rem;
 }
 
 .project-grid {
